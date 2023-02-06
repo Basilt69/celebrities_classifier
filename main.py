@@ -1,7 +1,7 @@
 import streamlit as st
 
 from utils.utils import (
-    load_model
+    load_model, upload_image
 )
 
 
@@ -37,7 +37,7 @@ def main():
         image = upload_image()
         if image and st.button("Start classification"):
             with st.spinner("Processing ..."):
-                extract_multiple_videos_faces(video, model)
+                get_cropped_face(image, model)
 
     elif activity == "2.":
         photo =
