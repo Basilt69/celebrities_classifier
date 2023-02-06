@@ -1,24 +1,18 @@
 import streamlit as st
 import matplotlib.pyplot as plt
 import numpy as np
-import requests, jsonify
-import tempfile
-import keras
+import requests, jsonify, joblib
+
 import glob
 import pafy
 import cv2
 import os
+import base64
 
 from PIL import Image, UnidentifiedImageError
-from streamlit_cropper import st_cropper
-from urlib.parse import urlparse
-from skimage import transform
-from mtcnn.mtcnn import MTCNN
-from matplotlib import pyplot
-from matplotlib.patches import Rectangle, Circle
-from random import choice, randint
-from io import BytesIO
-from numpy import asarray
+
+from PyWavelets import w2d
+
 
 FILE_TYPES = ["png", "bmp", "jpg", "jpeg"]
 
@@ -49,5 +43,21 @@ def upload_image():
     user_img = uploader(st.file_uploader("Please, upload your file.", type=FILE_TYPES))
 
     return get_image(user_img)
+
+
+def get_cropped_face(image):
+    face_cascade = cv2.CascadeClassifier('./opencv/haarcascades/haarcascade_frontalface_default.xml')
+    eye_cascade = cv2.CascadeClassifier('./opencv/haarcascades/haarcascade_eye.xml')
+
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    faces = face_cascade.detectMultiScale(gray, 1.3, 5)
+
+    cropped_faces = []
+
+    for (x, y, w, h) in faces:
+        roi_gray = gray[y:y+h, x:x+w]
+        roi_color = image[y:y+h,x:x+w]
+
+
 
 
