@@ -19,7 +19,7 @@ def header():
     st.markdown("**Title:** Celebrities classifier with help of SVM")
     st.markdown("Prepared by Basil Tkachenko")
 
-    st.sidebar.markdown("[prject repo](https://github.com/Basilt69/celebrities_classifier)")
+    st.sidebar.markdown("[project repo](https://github.com/Basilt69/celebrities_classifier)")
 
 
 def main():
