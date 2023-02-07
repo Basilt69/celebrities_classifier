@@ -6,7 +6,7 @@ import joblib, json
 #import glob
 #import pafy
 import cv2
-#import os
+import os
 #import base64
 
 from PIL import Image, UnidentifiedImageError
@@ -14,7 +14,7 @@ from PIL import Image, UnidentifiedImageError
 import pywt
 
 
-FILE_TYPES = ["png", "bmp", "jpg", "jpeg"]
+'''FILE_TYPES = ["png", "bmp", "jpg", "jpeg"]
 
 __class_name_to_number = {}
 __class_number_to_name = {}
@@ -108,7 +108,15 @@ def load_saved_artifacts():
     if __model is None:
         with open('./artifacts/saved_model.pkl', 'rb') as f:
             __model = joblib.load(f)
-    print("loading saved artifacts...done")
+    print("loading saved artifacts...done")'''
+
+
+def upload_images():
+    uploaded_file = st.file_uploader("Choose your photo", accept_multiple_files=False)
+    bytes_data = uploaded_file.read()
+    st.write("filename:", uploaded_file.name)
+    st.write(bytes_data)
+
 
 
 
