@@ -1,7 +1,7 @@
 import streamlit as st
 
 from utils.utils import (
-    load_model, upload_image
+    upload_image, get_cropped_face,classify_image
 )
 
 
@@ -31,7 +31,7 @@ def main():
         index=0
     )[:1]
 
-    model = load_model()
+    model = classify_image()
 
     if activity == "1":
         image = upload_image()
@@ -39,5 +39,5 @@ def main():
             with st.spinner("Processing ..."):
                 get_cropped_face(image, model)
 
-    elif activity == "2.":
-        photo =
+    #elif activity == "2.":
+        #photo =
