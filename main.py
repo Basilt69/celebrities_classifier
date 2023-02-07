@@ -6,7 +6,7 @@ import streamlit as st
 
 def header():
     st.set_page_config(
-        oage_title="Celebrities classifier",
+        page_title="Celebrities classifier",
         layput="wide",
     )
 
