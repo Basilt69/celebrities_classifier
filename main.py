@@ -40,3 +40,7 @@ def main():
 
     #elif activity == "2.":
         #photo =
+
+
+if __name__ == "__main__":
+    main()
