@@ -38,6 +38,7 @@ def main():
 
     if activity == "1":
         image = upload_images()
+        st.write("Image")
         st.write(image)
         #if image and st.button("Start classification"):
             #with st.spinner("Processing ..."):

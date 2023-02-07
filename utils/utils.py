@@ -30,7 +30,7 @@ def upload_images():
         st.write("Preview")
         _ = cropped_img.thumbnail((640, 640))
         st.image(cropped_img)
-    st.write(bytes_data)
+
 
 
 
