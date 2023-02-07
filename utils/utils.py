@@ -1,17 +1,17 @@
 import streamlit as st
 #import matplotlib.pyplot as plt
-import numpy as np
-import joblib, json
+#import numpy as np
+#import joblib, json
 
 #import glob
 #import pafy
-import cv2
-import os
+#import cv2
+#import os
 #import base64
 
-from PIL import Image, UnidentifiedImageError
+#from PIL import Image, UnidentifiedImageError
 
-import pywt
+#import pywt
 
 
 '''FILE_TYPES = ["png", "bmp", "jpg", "jpeg"]
