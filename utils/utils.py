@@ -1,13 +1,13 @@
 import streamlit as st
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import numpy as np
-import requests, jsonify, joblib, json
+import joblib, json
 
-import glob
-import pafy
+#import glob
+#import pafy
 import cv2
-import os
-import base64
+#import os
+#import base64
 
 from PIL import Image, UnidentifiedImageError
 
