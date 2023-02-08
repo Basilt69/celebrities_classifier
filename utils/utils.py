@@ -63,7 +63,7 @@ def get_image(user_img):
 @st.cache(allow_output_mutation=True, ttl=3600)
 def load_model_1():
     #return keras.models.load_model("models/saved_model.h5")
-    return load_model("models/saved_model.h5")
+    return load_model("models/saved_model.h5py")
 
 
 def transform_detect(image, model):
