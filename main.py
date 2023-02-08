@@ -7,7 +7,7 @@ from utils.utils import (
     upload_images,
     upload_image,
     start_classification,
-    load_model
+    load_model_1
 )
 
 
@@ -37,7 +37,7 @@ def main():
         index=0
     )[:1]
 
-    model = load_model()
+    model = load_model_1()
 
     if activity == "1":
         #image = upload_images()
