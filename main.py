@@ -6,7 +6,8 @@ import streamlit as st
 from utils.utils import (
     upload_images,
     upload_image,
-    #start_classification
+    start_classification,
+    load_model
 )
 
 
@@ -36,13 +37,14 @@ def main():
         index=0
     )[:1]
 
-    #model = classify_image()
+    model = load_model()
 
     if activity == "1":
         #image = upload_images()
         image = upload_image()
-        #if image:
-            #start_classification(image, model, static=True)
+        if image:
+            probability = start_classification(image, model, static=True)
+            st.write(probability)
 
 
         #if image and st.button("Start classification"):

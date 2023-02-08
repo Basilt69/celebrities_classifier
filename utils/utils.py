@@ -1,7 +1,10 @@
 import streamlit as st
+import numpy as np
+import keras
 
 from streamlit_cropper import st_cropper
 from PIL import Image
+from skimage import transform
 
 FILE_TYPES = ["png", "bmp", "jpg", "jpeg"]
 
@@ -41,7 +44,7 @@ def upload_image():
 def uploader(file, type="foto"):
     show_file = st.empty()
     if not file:
-        show_file.info("allowed file types:" + ", ".join(FILE_TYPES))
+        show_file.info("allowed file types: " + ", ".join(FILE_TYPES))
         return False
     return file
 
@@ -54,6 +57,27 @@ def get_image(user_img):
     st.image(img, width=600)
 
     return img
+
+
+@st.cache(allow_output_mutation=True, ttl=3600)
+def load_model():
+    return keras.models.load_model("models/saved_model.pkl")
+
+
+def transform_detect(image, model):
+    np_image = np.array(image).astype('float')/255
+    np_image = transform.resize(np_image, (224,224,3))
+    np_image = np.expand_dims(np_image, axis=0)
+
+    return model.predict(np_image)[0][0]
+
+
+
+def start_classification(image, model, static=False):
+    probability = transform_detect(image, model)
+
+    return probability
+
 
 
 
