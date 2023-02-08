@@ -49,3 +49,9 @@ streamlit-cropper==0.2.1  # https://github.com/turner-anderson/streamlit-cropper
 # iopath==-0.1.9
 # simplejson==3.17.6
 # fvcore==-0.1.5.post20220512
+
+streamlit~=1.17.0
+numpy~=1.24.1
+keras~=2.11.0
+Pillow~=9.4.0
+scikit-image~=0.19.3
