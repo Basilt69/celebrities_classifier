@@ -1,6 +1,7 @@
 import streamlit as st
 import numpy as np
 import keras
+from keras.models import load_model
 
 from streamlit_cropper import st_cropper
 from PIL import Image
@@ -61,7 +62,8 @@ def get_image(user_img):
 
 @st.cache(allow_output_mutation=True, ttl=3600)
 def load_model():
-    return keras.models.load_model("models/saved_model.h5")
+    #return keras.models.load_model("models/saved_model.h5")
+    return load_model("models/saved_model.h5")
 
 
 def transform_detect(image, model):
