@@ -32,6 +32,31 @@ def upload_images():
         st.image(cropped_img)
 
 
+def upload_image():
+    user_img = uploader(st.file_uploader("Upload your image:", type=FILE_TYPES))
+
+    return get_image(user_img)
+
+
+def uploader(file, type="foto"):
+    show_file = st.empty()
+    if not file:
+        show_file.info("allowed file types:" + ",".join(FILE_TYPES))
+        return False
+    return file
+
+
+def get_image(user_img):
+    img = None
+    if user_img is not False:
+        img = Image.open(user_img)
+
+    st.image(img, width=600)
+
+    return img
+
+
+
 
 
 

@@ -4,7 +4,9 @@ import streamlit as st
     #upload_image, get_cropped_face,classify_image)
 
 from utils.utils import (
-    upload_images
+    upload_images,
+    upload_image,
+    start_classification
 )
 
 
@@ -37,9 +39,10 @@ def main():
     #model = classify_image()
 
     if activity == "1":
-        image = upload_images()
-        st.write("Image")
-        st.write(image)
+        #image = upload_images()
+        image = upload_image()
+        if image:
+            start_classification(image, model, static=True)
         #if image and st.button("Start classification"):
             #with st.spinner("Processing ..."):
                 #get_cropped_face(image, model)
