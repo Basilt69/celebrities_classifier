@@ -41,7 +41,7 @@ def upload_image():
 def uploader(file, type="foto"):
     show_file = st.empty()
     if not file:
-        show_file.info("allowed file types:" + ",".join(FILE_TYPES))
+        show_file.info("allowed file types:" + ", ".join(FILE_TYPES))
         return False
     return file
 
