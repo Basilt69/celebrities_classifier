@@ -1,8 +1,5 @@
 import streamlit as st
 
-#from utils.utils import (
-    #upload_image, get_cropped_face,classify_image)
-
 from utils.utils import (
     upload_images,
     upload_image,
@@ -45,11 +42,6 @@ def main():
         if image:
             probability = start_classification(image, model, static=True)
             st.write(probability)
-
-
-        #if image and st.button("Start classification"):
-            #with st.spinner("Processing ..."):
-                #get_cropped_face(image, model)
 
     #elif activity == "2.":
         #photo =
